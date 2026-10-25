@@ -1,0 +1,801 @@
+/* =========================================================
+   SMARTLENS — GLOBAL LAYOUT FIX
+   ========================================================= */
+
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #050505;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   MAIN SMARTLENS PAGE
+   ========================================================= */
+
+.smartlens-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #050505;
+}
+
+/* IMPORTANT:
+   Never use max-width on the main hero.
+   It was causing the white strips.
+*/
+
+.smartlens-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+/* =========================================================
+   SONAR BACKGROUND
+   ========================================================= */
+
+.smartlens-sonar {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================================
+   TOP NAVIGATION
+   ========================================================= */
+
+.smartlens-topbar {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 0 32px;
+
+  pointer-events: none;
+}
+
+.smartlens-topbar > * {
+  pointer-events: auto;
+}
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.smartlens-brand {
+  position: absolute;
+  left: 32px;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  z-index: 60;
+}
+
+.smartlens-brand-logo {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(14px);
+}
+
+.smartlens-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.smartlens-brand-name {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.smartlens-brand-subtitle {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+/* =========================================================
+   CENTER NAV
+   ========================================================= */
+
+.smartlens-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 5px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+
+  background: rgba(5, 5, 5, 0.72);
+  backdrop-filter: blur(18px);
+}
+
+.smartlens-nav button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  min-height: 40px;
+  padding: 0 17px;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: transparent;
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.smartlens-nav button:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.smartlens-nav button.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.smartlens-nav button:active {
+  transform: scale(0.97);
+}
+
+/* =========================================================
+   THEME BUTTON
+   ========================================================= */
+
+.smartlens-theme {
+  position: absolute;
+  right: 32px;
+  top: 0;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(14px);
+
+  color: #ffffff;
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.smartlens-theme:hover {
+  background: rgba(255, 255, 255, 0.10);
+  transform: rotate(8deg);
+}
+
+/* =========================================================
+   SYSTEM STATUS
+   ========================================================= */
+
+.smartlens-status {
+  position: absolute;
+  right: 92px;
+  top: 5px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  height: 38px;
+  padding: 0 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+
+  background: rgba(5, 5, 5, 0.65);
+  backdrop-filter: blur(14px);
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.smartlens-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.75);
+}
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.smartlens-hero-content {
+  position: relative;
+  z-index: 20;
+
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 150px 32px 100px;
+}
+
+/* DO NOT constrain this to max-width 6xl */
+
+.smartlens-center-content {
+  position: relative;
+  z-index: 30;
+
+  width: min(680px, 100%);
+  text-align: center;
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+   HERO HEADING
+   ========================================================= */
+
+.smartlens-heading {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(48px, 6vw, 88px);
+  line-height: 0.94;
+  font-weight: 700;
+
+  letter-spacing: -0.055em;
+}
+
+.smartlens-heading span {
+  display: block;
+}
+
+.smartlens-heading .accent {
+  color: #ffffff;
+}
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.smartlens-description {
+  width: min(620px, 100%);
+
+  margin: 34px auto 0;
+
+  color: rgba(255, 255, 255, 0.60);
+
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.75;
+
+  text-align: center;
+}
+
+/* =========================================================
+   SIDE FEATURE SYSTEM
+   ========================================================= */
+
+.smartlens-features-left,
+.smartlens-features-right {
+  position: absolute;
+  z-index: 35;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  width: 290px;
+
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.smartlens-features-left {
+  left: 32px;
+}
+
+.smartlens-features-right {
+  right: 32px;
+}
+
+/* =========================================================
+   FEATURE CARD
+   ========================================================= */
+
+.smartlens-feature-card {
+  width: 100%;
+  min-height: 94px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
+  background: rgba(5, 5, 5, 0.54);
+  backdrop-filter: blur(16px);
+
+  color: #ffffff;
+
+  transition:
+    border-color 200ms ease,
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.smartlens-feature-card:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(20, 20, 20, 0.72);
+  transform: translateY(-3px);
+}
+
+.smartlens-feature-icon {
+  flex: 0 0 46px;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 14px;
+
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.smartlens-feature-content {
+  min-width: 0;
+}
+
+.smartlens-feature-title {
+  margin-bottom: 7px;
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.smartlens-feature-description {
+  color: rgba(255, 255, 255, 0.56);
+
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.smartlens-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  margin-top: 38px;
+}
+
+.smartlens-primary-button,
+.smartlens-secondary-button {
+  height: 52px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 0 25px;
+
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.smartlens-primary-button {
+  border: 1px solid #ffffff;
+  background: #ffffff;
+  color: #050505;
+}
+
+.smartlens-secondary-button {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(5, 5, 5, 0.55);
+  color: #ffffff;
+  backdrop-filter: blur(14px);
+}
+
+.smartlens-primary-button:hover,
+.smartlens-secondary-button:hover {
+  transform: translateY(-2px);
+}
+
+.smartlens-secondary-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   BOTTOM STATUS
+   ========================================================= */
+
+.smartlens-bottom-status {
+  position: absolute;
+
+  left: 50%;
+  bottom: 38px;
+
+  transform: translateX(-50%);
+
+  z-index: 35;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  color: rgba(255, 255, 255, 0.38);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+
+  white-space: nowrap;
+}
+
+.smartlens-bottom-status span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.smartlens-bottom-status .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .smartlens-features-left,
+  .smartlens-features-right {
+    width: 230px;
+  }
+
+  .smartlens-features-left {
+    left: 18px;
+  }
+
+  .smartlens-features-right {
+    right: 18px;
+  }
+
+  .smartlens-brand {
+    left: 18px;
+  }
+
+  .smartlens-theme {
+    right: 18px;
+  }
+
+  .smartlens-status {
+    right: 76px;
+  }
+}
+
+@media (max-width: 900px) {
+  .smartlens-features-left,
+  .smartlens-features-right {
+    display: none;
+  }
+
+  .smartlens-brand-subtitle {
+    display: none;
+  }
+
+  .smartlens-nav button {
+    padding: 0 12px;
+  }
+
+  .smartlens-status {
+    display: none;
+  }
+
+  .smartlens-hero-content {
+    padding-top: 130px;
+  }
+}
+
+@media (max-width: 620px) {
+  .smartlens-topbar {
+    padding: 0 14px;
+  }
+
+  .smartlens-brand {
+    left: 14px;
+  }
+
+  .smartlens-brand-name {
+    font-size: 13px;
+  }
+
+  .smartlens-brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .smartlens-theme {
+    right: 14px;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  .smartlens-nav {
+    margin-top: 65px;
+  }
+
+  .smartlens-nav button {
+    min-height: 36px;
+    padding: 0 9px;
+    font-size: 10px;
+  }
+
+  .smartlens-nav svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .smartlens-hero-content {
+    padding: 170px 20px 100px;
+  }
+
+  .smartlens-heading {
+    font-size: clamp(42px, 13vw, 64px);
+  }
+
+  .smartlens-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .smartlens-actions {
+    flex-direction: column;
+  }
+
+  .smartlens-primary-button,
+  .smartlens-secondary-button {
+    width: min(280px, 100%);
+  }
+
+  .smartlens-bottom-status {
+    bottom: 20px;
+    font-size: 8px;
+  }
+}
+
+/* =========================================================
+   SMARTLENS — FULL VIEWPORT OVERRIDE
+   Removes any parent max-width / centered container
+   ========================================================= */
+
+/* Vite / shadcn root must never constrain the page */
+html,
+body,
+#root {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Main SmartLens wrapper escapes ANY centered max-width parent */
+.smartlens-page {
+  position: relative !important;
+
+  width: 100vw !important;
+  max-width: none !important;
+
+  min-width: 100vw !important;
+  min-height: 100vh !important;
+
+  margin-left: calc((100% - 100vw) / 2) !important;
+  margin-right: calc((100% - 100vw) / 2) !important;
+
+  padding: 0 !important;
+
+  overflow-x: hidden !important;
+}
+
+/* Hero itself must occupy the complete viewport */
+.smartlens-hero {
+  position: relative !important;
+
+  width: 100vw !important;
+  max-width: none !important;
+  min-width: 100vw !important;
+
+  min-height: 100vh !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+}
+
+/* Sonar must also fill the entire hero */
+.smartlens-sonar {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+
+  margin: 0 !important;
+}
+
+/* Hero content cannot have a max-width */
+.smartlens-hero-content {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+}
+
+/* =========================================================
+   DESKTOP SIDE FEATURES — KEEP INSIDE VIEWPORT
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  .smartlens-features-left {
+    left: 36px !important;
+  }
+
+  .smartlens-features-right {
+    right: 36px !important;
+  }
+}
+
+/* =========================================================
+   REMOVE ACCIDENTAL VITE / SHADCN CONSTRAINTS
+   ========================================================= */
+
+main,
+section,
+#root > div {
+  max-width: none;
+}
+
+/* BUT don't destroy normal child layout */
+.smartlens-page main,
+.smartlens-page section {
+  width: 100%;
+}
+
+/* =========================================================
+   DESKTOP HERO SPACING
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  .smartlens-hero-content {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  .smartlens-center-content {
+    width: min(700px, calc(100vw - 680px)) !important;
+    max-width: 700px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .smartlens-page,
+  .smartlens-hero {
+    width: 100vw !important;
+    min-width: 100vw !important;
+  }
+}
